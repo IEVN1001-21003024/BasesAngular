@@ -1,0 +1,16 @@
+<h1>hola mundo!!!</h1>
+
+<div>
+  {{title}}
+  2 mas 2 {{2+2}}
+  <br>
+  el doble de el numero 3 es {{duplicarNumero(3)}}
+  <div>
+    <h2>{{alumno.matricula}}</h2>
+    <h2>{{alumno.nombre | uppercase}}</h2>
+    <h2>{{alumno.fachaInscrito | date:"dd-MM.yy"}}</h2>
+    <h2>pago: {{alumno.pago | currency}}</h2>
+  </div>
+  <hr>
+  <app-product-list></app-product-list>
+</div>
