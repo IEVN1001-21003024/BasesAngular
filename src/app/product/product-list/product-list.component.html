@@ -1,20 +1,19 @@
-<p>product-list works!</p>
 <div class="card">
 <div class="card-header">
 lista de productos
 </div>
 <div class="card-body">
-    <div class="row">
+    <div class="row">89'8
         <div class="col-md-2">
             filtrar:
         </div>
         <div>
-            <input type="text" class="from-control" name="filter">
+            <input type="text" [(ngModel)]="listFilter" class="from-control" name="filter">
         </div>
     </div>
     <div class="row">
         <div class="col-md-6">
-            <h3>Filtro:</h3>
+            <h3>Filtro:{{listFilter}}</h3>
         </div>
     </div>
     <div class="table-responsive">
@@ -23,7 +22,7 @@ lista de productos
                 <tr>
                     <th>
                         <button (click)="mostarImagen()" class="btn btn-primary"
-                        type="button">Imagen</button>
+                        type="button">{{muestraImagenes?'Ocultar':'Muestra'}}Imagen</button>
                     </th>
                     <th>modelo</th>
                     <th>descripcion</th>
@@ -34,7 +33,7 @@ lista de productos
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let producto of productos">
+                <tr *ngFor="let producto of productos | productoFilter : listFilter">
                     <td *ngIf="muestraImagenes">
                         <img [src]="producto.imgUrl"
                         [title]="producto.modelo"
@@ -44,8 +43,8 @@ lista de productos
                     </td>
                     <td>{{producto.modelo}}</td>
                     <td>{{producto.descripcion}}</td>
-                    <td>{{producto.year|date}}</td>
-                    <td>{{producto.precio|currency}}</td>
+                    <td>{{producto.year | date}}</td>
+                    <td>{{producto.precio | currency}}</td>
                     <td>{{producto.marca}}</td>
                     <td>{{producto.color}}</td>
                 </tr>
