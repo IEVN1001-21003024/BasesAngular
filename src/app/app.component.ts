@@ -19,3 +19,4 @@ export class AppComponent {
     pago:2220
   };
 }
+  
