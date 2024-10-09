@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="formulario">
+      <h1>Formulario de Zodiaco</h1>
+      <form [formGroup]="zodiacoForm" (ngSubmit)="calcularEdad()">
+        <div>
+          <label>Nombre</label>
+          <input formControlName="nombre" type="text">
+        </div>
+        <div>
+          <label>Apellido Paterno</label>
+          <input formControlName="apellidoPaterno" type="text">
+        </div>
+        <div>
+          <label>Apellido Materno</label>
+          <input formControlName="apellidoMaterno" type="text">
+        </div>
+        <div class="fecha-container">
+          <div>
+            <label>Día</label>
+            <input formControlName="dia" type="number">
+          </div>
+          <div>
+            <label>Mes</label>
+            <input formControlName="mes" type="number">
+          </div>
+          <div>
+            <label>Año</label>
+            <input formControlName="ano" type="number">
+          </div>
+        </div>
+  
+        <div>
+          <label>Sexo</label>
+          <div>
+            <label><input formControlName="sexo" type="radio" value="Hombre"> Hombre</label>
+            <label><input formControlName="sexo" type="radio" value="Mujer"> Mujer</label>
+          </div>
+        </div>
+        <button type="submit">Calcular Edad y Signo</button>
+      </form>
+    </div>
+  
+    <div class="resultados">
+      <h3 *ngIf="nombre">{{nombre}} {{apellidoPaterno}} {{apellidoMaterno}}</h3>
+      <h3 *ngIf="edad > 0">Tu edad es: {{edad}}</h3>
+      <h3 *ngIf="signo">Tu signo zodiacal chino es: {{signo}}</h3>
+      <img *ngIf="imagenSigno" [src]="imagenSigno" alt="Signo zodiacal chino" style="max-width: 200px; height: 200px; border-radius: 5000px;">
+    </div>
+  </div>
+  
+  
